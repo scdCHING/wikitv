@@ -1,0 +1,84 @@
+<html>
+<head>	
+		<style>
+			.container-body{		
+			width: 900px; margin:0 auto;
+			background-color: white;		
+			align-content: center;	
+			padding-top: 20px;		
+			padding-left: 20px;
+			padding-bottom: 20px;
+			padding-right: 20px;			
+						}
+
+			.submit{
+			
+}
+
+		body{
+			background-color: #ddd;
+}
+		</style>
+	</head>
+<body>
+<h1><%= @show.title %></h1>
+<% if @show.poster == "" %>
+	<div class="jumbotron1">
+  <h1>NO POSTER</h1>
+  <p>If you have free time and I'm sure you do, please upload a poster ASAP. Thank you!</p>
+  <p><a <a href="<%=@show.id%>/edit" class="btn btn-primary btn-lg">Edit Show</a></p>
+</div>
+<% else %>
+<div class="jumbotron1" >  
+	<img src = "<%= @show.poster %>" style="width: 800px; length:400px" />  
+</div>
+<% end %>
+
+
+
+
+<h4>Description</h4>
+<div><p><%= @show.description %></p></div>
+<h4>Number of Season: <%= @show.number_of_seasons %> Seasons </h4> 
+<h4>Status: <%= @show.status %></h4>
+<h4>Episode Length: <%= @show.episode_length %> minutes</h4>
+<h4>Actors: <%= @show.actors %></h4>
+<h4>Producers: <%= @show.producers %></h4>
+
+
+<hr>
+<h1>Reviews</h1>
+
+
+<% @reviews.each do |r| %>
+	<% if r.show == @show.title %>
+	<hr>	
+	<div><b><%=r.title%></b></div>
+	<div>by <%= r.author %></div>
+	<div>Date: <%=r.date_published%></div>
+	<div><p><%=r.content%></p></div>
+	<div>Rating: <%=r.rating%></div>
+	<div>Recommended? <%=r.recommend%></div>
+	<div>Copy? <%=r.copy%></div>
+	<div><%= link_to "Edit", edit_show_review_path(@show.id, r.id) %> |
+	<%= link_to "Delete", show_review_path(@show.id, r.id), method: :delete, data: { confirm: "Are you sure you want to delete?" } %></div>
+	<% end %>
+	
+<% end %>
+<hr>
+<div class="buttons" style="padding-bottom: 30px">
+	<div style="float: right; padding-bottom: 20 px">
+	<%= button_to "All Shows", shows_path, :class => "btn btn-primary", :method => "get" %>
+	</div>
+	<div style="float: left; padding-bottom: 20 px" >
+	<%= button_to "New Review", new_show_review_path(@show.id), :class => "btn btn-primary", :method => "get" %>
+	</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+

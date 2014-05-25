@@ -1,0 +1,12 @@
+<html>
+
+<h1>Reviews</h1>
+<hr>
+<%= link_to "New Review", new_review_path %>
+<hr>
+<% @reviews.each do |review| %>
+	<%= review.title %> | 
+	<%= link_to "Edit", edit_review_path(review.id) %> |
+	<%= link_to "Delete", review_path(review.id), method: :delete, data: { confirm: "Are you sure you want to delete?" } %>
+<% end %>
+</html>

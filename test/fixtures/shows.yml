@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  number_of_seasons: 1
+  description: MyText
+  status: MyString
+  episode_length: MyString
+  actors: MyString
+  producers: MyString
+  rating: 1
+  poster: MyString
+
+two:
+  title: MyString
+  number_of_seasons: 1
+  description: MyText
+  status: MyString
+  episode_length: MyString
+  actors: MyString
+  producers: MyString
+  rating: 1
+  poster: MyString

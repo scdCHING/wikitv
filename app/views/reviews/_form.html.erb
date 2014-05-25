@@ -1,0 +1,68 @@
+<html>
+	<head>	
+		<style>
+			.container-body{		
+			width: 900px; margin:0 auto;
+			background-color: white;		
+			align-content: center;
+			padding-top: 20px;		
+			padding-left: 20px;
+			padding-bottom: 20px;	
+			padding-right: 20px;		
+						}
+
+		body{
+			background-color: #ddd;
+}	
+		</style>
+	</head>
+	<body>	
+<%= form_for @review, url: {action: "create"} do |r| %>	
+	<div><h4>TV Show:</h4></div>
+	<%= r.text_field :show, :value => @show.title %>
+	<div><h4>Title</h4></div>
+	<%= r.text_field :title %>	
+	<div><h4>Author</h4></div>
+	<%= r.text_field :author %>
+	<div><h4>Date Published</h4></div>
+	<%= r.date_select :date_published %>	
+	<div><h4>Content</h4></div>
+	<%= r.text_area :content, size:"80x10" %>
+	<div><h4>Rating</h4></div>
+	<%= r.radio_button(:rating, "1") %>
+	<%= label_tag("1") %>	
+       	<%= r.radio_button(:rating, "2") %>	
+	<%= label_tag("2") %>
+	<%= r.radio_button(:rating, "3") %>
+	<%= label_tag("3") %>	
+       	<%= r.radio_button(:rating, "4") %>	
+	<%= label_tag("4") %>	
+	<%= r.radio_button(:rating, "5") %>
+	<%= label_tag("5") %>	
+       	<%= r.radio_button(:rating, "6") %>	
+	<%= label_tag("6") %>	
+	<%= r.radio_button(:rating, "7") %>
+	<%= label_tag("7") %>	
+       	<%= r.radio_button(:rating, "8") %>	
+	<%= label_tag("8") %>	
+	<%= r.radio_button(:rating, "9") %>
+	<%= label_tag("9") %>	
+       	<%= r.radio_button(:rating, "10") %>	
+	<%= label_tag("10") %>	
+	 		
+	<div><h4>Recommended?</h4></div>
+	<%= r.radio_button(:recommend, "Yes") %>
+	<%= label_tag("Yes") %>	
+       	<%= r.radio_button(:recommend, "No") %>	
+	<%= label_tag("No") %>	
+	<div><h4>Do you have a copy of this series?</h4></div>
+	<%= r.radio_button(:copy, "Yes") %>
+	<%= label_tag("Yes") %>	
+       	<%= r.radio_button(:copy, "No") %>	
+	<%= label_tag("No") %>	
+	<hr>
+	<%= r.submit "Save", class: "btn btn-primary" %>
+<% end %>
+
+</body>
+</html>

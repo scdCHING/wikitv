@@ -1,0 +1,14 @@
+<html>
+
+<h1>New Show</h1>
+<hr>
+<% if !@message.nil? %>
+	 <% @message.each_pair do |key, value| %>
+		ERROR: <%= "#{key}: #{value}" %> 
+	<% end %>
+<% end %>
+
+
+<%= render partial: "shows/form", locals: { show: @show } %>
+</html>
+	

@@ -1,0 +1,13 @@
+<html>
+
+<h1>New Review</h1>
+<hr>
+<% if !@message.nil? %>
+	 <% @message.each_pair do |key, value| %>
+		ERROR: <%= "#{key}: #{value}" %> 
+	<% end %>
+<% end %>
+
+
+<%= render partial: "reviews/form", locals: { review: @review } %>
+</html>

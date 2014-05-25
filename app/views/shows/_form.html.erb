@@ -1,0 +1,50 @@
+<html>
+	<head>	
+		<style>
+			.container-body{		
+			width: 900px; margin:0 auto;
+			background-color: white;		
+			align-content: center;	
+			padding-top: 20px;		
+			padding-left: 20px;
+			padding-bottom: 20px;
+			padding-right: 20px;			
+						}
+
+			.submit{
+			
+}
+
+		body{
+			background-color: #ddd;
+}
+		</style>
+	</head>
+	<body>	
+																								
+					<%= form_for show do |f| %>
+					<div><h4>Title</h4></div>
+					<%= f.text_field :title %>
+					<div><h4>Number of Seasons</h4></div>
+					<%= f.text_field :number_of_seasons %>
+					<div><h4>Description</h4></div>
+					<%= f.text_area :description, size: "80x10" %>
+					<div><h4>Status</h4></div>
+						<%= f.radio_button(:status, "Ongoing") %>
+						<%= label_tag("Ongoing") %>	
+					  		<%= f.radio_button(:status, "Finished") %>	
+						<%= label_tag("Finished") %>	
+					<div><h4>Episode Length</h4></div>										
+					<%= f.text_field :episode_length %> minutes
+					<div><h4>Actors</h4></div>
+					<%= f.text_field :actors %>
+					<div><h4>Producers</h4></div>
+					<%= f.text_field :producers %>						
+					  	<div><h4>Poster</h4></div>
+					<%= f.text_field :poster %>	
+					<hr>
+					<%= f.submit "Save", class: "btn btn-primary" %>
+				<% end %>													
+	
+	</body>
+</html>
